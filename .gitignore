@@ -1,0 +1,9 @@
+##Txt files
+*.txt
+
+#All bin And Obj fildera
+**/bin/** 
+**/obj/**
+
+#idea files
+.idea/**

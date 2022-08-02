@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "All US";
+}
+@model IEnumerable<NewEmployeeDBFinal.Models.USModel>
+@{
+    Layout = "_Layout";
+}
+<link href="css/site.css" rel="stylesheet">
+<td>
+    <style>
+        .green {
+            color: green;
+            font-weight: bold;
+        }
+
+        .red {
+            color: red;
+            font-weight: bold;
+        }
+
+
+        .orange {
+            color: orange;
+            font-weight: bold;
+        }
+    </style>
+</td>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="coln">
+                @Html.DisplayNameFor(model => model.Feature)
+            </th>
+            <th class="coln">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th class="col1">
+                @Html.DisplayNameFor(model => model.UserStoryTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bugs)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @if (item.Feature > 0)
+                {
+                    <a href="https://dev.azure.com/amtrust/Amtrust/_workitems/edit/ @Html.DisplayFor(modelItem => item.Feature)"> @Html.DisplayFor(modelItem => item.Feature)</a>
+                }
+                else
+                {
+                    <b>-</b>
+                }
+            </td>
+            <td>
+                <a href="https://dev.azure.com/amtrust/Amtrust/_workitems/edit/ @Html.DisplayFor(modelItem => item.Id)">@Html.DisplayFor(modelItem => item.Id)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserStoryTitle)
+            </td>
+            @*@{
+            string color;
+            if (item.Status == "Resolved") { color = "green!important"; } else { color = "red"; }
+        }
+        <td class=@color>*@
+            <td class="@Html.DisplayFor(modelItem => item.Color)">
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bugs)
+            </td>
+            @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">All Employee</a>*@
+        </tr>
+
+        }
+    </tbody>
+</table>

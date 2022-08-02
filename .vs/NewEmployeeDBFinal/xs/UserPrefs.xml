@@ -1,0 +1,46 @@
+﻿<Properties StartupConfiguration="{67DEEE13-CE18-484C-83EA-34D4427F3302}|Default">
+  <MonoDevelop.Ide.ItemProperties.NewEmployeeDBFinal PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="NewEmployeeDBFinal/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="NewEmployeeDBFinal/Controllers/HomeController.cs" Line="22" Column="41" IsPinned="True" />
+      <File FileName="NewEmployeeDBFinal/Views/Shared/Header.cshtml" Line="2" Column="167" />
+      <File FileName="NewEmployeeDBFinal/Views/Shared/_LeftSection.cshtml" Line="59" Column="80" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NewEmployeeDBFinal" expanded="True" selected="True">
+            <Node name="NewEmployeeDBFinal" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/EmployeeModel.cs" relfile="NewEmployeeDBFinal/Models/EmployeeModel.cs" line="59" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/EmployeeModel.cs" relfile="NewEmployeeDBFinal/Models/EmployeeModel.cs" line="60" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/EmployeeModel.cs" relfile="NewEmployeeDBFinal/Models/EmployeeModel.cs" line="61" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/EmployeeModel.cs" relfile="NewEmployeeDBFinal/Models/EmployeeModel.cs" line="62" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/EmployeeModel.cs" relfile="NewEmployeeDBFinal/Models/EmployeeModel.cs" line="63" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Views/Home/Create.cshtml" relfile="NewEmployeeDBFinal/Views/Home/Create.cshtml" line="43" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/Serelisation.cs" relfile="NewEmployeeDBFinal/Models/Serelisation.cs" line="33" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/Serelisation.cs" relfile="NewEmployeeDBFinal/Models/Serelisation.cs" line="33" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/UsModel.cs" relfile="NewEmployeeDBFinal/Models/UsModel.cs" line="50" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/UsModel.cs" relfile="NewEmployeeDBFinal/Models/UsModel.cs" line="51" column="1" />
+      <Breakpoint file="/Users/nastiesdi/Desktop/ReportPronting/NewEmployeeDBFinal/Models/UsModel.cs" relfile="NewEmployeeDBFinal/Models/UsModel.cs" line="52" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

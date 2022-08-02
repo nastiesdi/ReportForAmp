@@ -1,0 +1,74 @@
+﻿@model NewEmployeeDBFinal.Models.USModel
+@using NewEmployeeDBFinal.Models.enums
+
+<h1>Edit</h1>
+
+<h4>Edit US</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Save" asp-route-model=@Model>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Feature" class="control-label"></label>
+                <input asp-for="Feature" class="form-control" />
+                <span asp-validation-for="Feature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserStoryTitle" class="control-label"></label>
+                <input asp-for="UserStoryTitle" class="form-control" />
+                <span asp-validation-for="UserStoryTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskType" class="control-label"></label>
+                <input asp-for="TaskType" class="form-control" />
+                <span asp-validation-for="TaskType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssignedTo" class="control-label"></label>
+                <input asp-for="AssignedTo" class="form-control" />
+                <span asp-validation-for="AssignedTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label"></label>
+                <input asp-for="Comments" class="form-control" />
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tags" class="control-label"></label>
+                <input asp-for="Tags" class="form-control" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label"></label>
+                @Html.DropDownListFor(value => value.Color,
+                new SelectList(Enum.GetValues(typeof(Colors))),
+                "Select color", new { @class = "form-control" })
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bugs" class="control-label"></label>
+                <input asp-for="Bugs" class="form-control" />
+                <span asp-validation-for="Bugs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@*<div>
+         <a asp-page="./Index">Back to List</a>
+    </div>*@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
