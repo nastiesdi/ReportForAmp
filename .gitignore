@@ -4,6 +4,6 @@
 #All bin And Obj fildera
 **/bin/** 
 **/obj/**
-
+**/wwwroot/**
 #idea files
 .idea/**
