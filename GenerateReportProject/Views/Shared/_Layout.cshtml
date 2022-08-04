@@ -14,8 +14,12 @@
         </div>
         <div class="col-9" style="left: 10px;margin-left: 0px;border-left-width: 10px;">
 
-            @{Html.RenderPartial("Header");}
+            <div class="row" >
+                @{Html.RenderPartial("Header");}
+                </div>
+            <div class="row" style="display: block;" >
             @RenderBody()
+            </div>
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

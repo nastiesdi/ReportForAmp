@@ -11,7 +11,7 @@ namespace NewEmployeeDBFinal.Models
     public class UsModel
     {
         private const string JsonFileName = "Files/AllUserStory.json";
-        private const string CsvFileName = "allUs.csv";
+        private const string CsvFileName = "Files/allUs.csv";
 
         [DisplayName("US Number")]
         public int Id { get; set; }

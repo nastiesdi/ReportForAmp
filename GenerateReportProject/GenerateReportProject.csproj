@@ -10,19 +10,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\system\.DS_Store" />
-    <None Include="wwwroot\system\fonts\ALS_Schlange_sans_a1qa_bld_TP.TTF" />
-    <None Include="wwwroot\system\fonts\ALS_Schlange_sans_a1qa_reg_TP.TTF" />
     <None Include="wwwroot\system\images\.DS_Store" />
     <None Include="wwwroot\system\images\AmtrustLogo.png" />
     <None Include="wwwroot\system\images\line_10.png" />
     <None Include="wwwroot\system\images\line_20.png" />
-    <None Include="wwwroot\system\scripts\.DS_Store" />
-    <None Include="wwwroot\system\scripts\bar_chart" />
-    <None Include="wwwroot\system\scripts\bar_chart_v1" />
-    <None Include="wwwroot\system\scripts\column_chart" />
-    <None Include="wwwroot\system\scripts\jsapi" />
-    <None Include="wwwroot\system\scripts\loader.js" />
-    <None Include="wwwroot\system\scripts\pie_chart" />
     <None Include="wwwroot\system\images\line_30.png" />
   </ItemGroup>
   <ItemGroup>
@@ -46,5 +37,12 @@
     <Content Remove="wwwroot\system\scripts\pie_chart" />
     <Content Remove="wwwroot\system\" />
     <Content Remove="wwwroot\system\images\line_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 </Project>

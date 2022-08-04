@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NewEmployeeDBFinal.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace NewEmployeeDBFinal.Controllers
 {
@@ -61,5 +62,32 @@ namespace NewEmployeeDBFinal.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
+        [HttpPost]
+        public IActionResult UploadFile(IFormFile image)
+        {
+            UploadedFile file = new UploadedFile();
+            if (image!=null)
+            {
+                //Set Key Name
+                string ImageName= "allUS.csv";
+
+                //Get url To Save
+                // string SavePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/img",ImageName);
+                string pathForDoc = Path.Combine( Directory.GetCurrentDirectory(), "Files", ImageName);
+                using(var stream=new FileStream(pathForDoc, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                }
+            }
+            UsModel.GetAllUsFromCsv();
+            var allUserStories = UsModel.GetAllUsFromJson();
+            return View("Index", allUserStories);
+        }
+    }
+    
+    public class UploadedFile
+    {
+        public IFormFile MyFile { set; get; }
     }
 }
