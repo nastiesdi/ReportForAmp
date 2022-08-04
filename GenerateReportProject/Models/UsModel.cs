@@ -10,7 +10,7 @@ namespace NewEmployeeDBFinal.Models
 {
     public class USModel
     {
-        public static string jsonFileName = "AllUserStory.json";
+        public static string jsonFileName = "Files/AllUserStory.json";
         public static string csvFileName = "allUs.csv";
 
         [DisplayName("US Number")]

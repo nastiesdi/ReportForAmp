@@ -1,0 +1,9 @@
+Use to run the project:
+1. go to  GenerateReportProject folder in Terminal:  cd GenerateReportProject 
+2. dotnet watch run
+
+Use to kill port where project run:
+npx kill-port 5001
+
+To stop running project:
+ctrl + z (mac  OS)
