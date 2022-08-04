@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "All US";
 }
-@model IEnumerable<NewEmployeeDBFinal.Models.USModel>
+@model IEnumerable<NewEmployeeDBFinal.Models.UsModel>
 @{
     Layout = "_Layout";
 }
@@ -96,9 +96,7 @@
                 <td>
                     <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                 </td>
-                @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">All Employee</a>*@
-            </tr>
-
+                </tr>
         }
     </tbody>
 </table>

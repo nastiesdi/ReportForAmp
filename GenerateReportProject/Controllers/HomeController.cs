@@ -18,40 +18,40 @@ namespace NewEmployeeDBFinal.Controllers
 
         public IActionResult Index()
         {
-            var allUserStories = USModel.GetAllUSFromJson();
+            var allUserStories = UsModel.GetAllUsFromJson();
             return View(allUserStories);
         }
 
         public IActionResult OpenForPrinting()
         {
-            var allUserStories = USModel.GetAllUSFromJson();
+            var allUserStories = UsModel.GetAllUsFromJson();
             return View("Print", allUserStories);
         }
 
         public IActionResult Delete(int id)
         {
-            USModel.RemoveUserStory(id);
-            var allEmployees = USModel.GetAllUSFromJson();
+            UsModel.RemoveUserStory(id);
+            var allEmployees = UsModel.GetAllUsFromJson();
             return View("Index", allEmployees);
         }
 
         public IActionResult LoadFromCsv()
         {
-            USModel.GetAllUSFromCsv();
-            var allUserStories = USModel.GetAllUSFromJson();
+            UsModel.GetAllUsFromCsv();
+            var allUserStories = UsModel.GetAllUsFromJson();
             return View("Index", allUserStories);
         }
 
         public IActionResult Edit(int id)
         {
-            var employee = USModel.SelectUserStory(id);
+            var employee = UsModel.SelectUserStory(id);
             return View("Edit", employee);
         }
 
-        public IActionResult Save(USModel updatedUS)
+        public IActionResult Save(UsModel updatedUS)
         {
-            USModel.EditUserStory(updatedUS);
-            var allUserStories = USModel.GetAllUSFromJson();
+            UsModel.EditUserStory(updatedUS);
+            var allUserStories = UsModel.GetAllUsFromJson();
             return View("Index", allUserStories);
 
         }

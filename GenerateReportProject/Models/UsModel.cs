@@ -8,16 +8,16 @@ using Employees;
 
 namespace NewEmployeeDBFinal.Models
 {
-    public class USModel
+    public class UsModel
     {
-        public static string jsonFileName = "Files/AllUserStory.json";
-        public static string csvFileName = "allUs.csv";
+        private const string JsonFileName = "Files/AllUserStory.json";
+        private const string CsvFileName = "allUs.csv";
 
         [DisplayName("US Number")]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Parrent is required.")]
-        [DisplayName("Parrent")]
+        [Required(ErrorMessage = "Parent is required.")]
+        [DisplayName("Parent")]
         public int Feature { get; set; }
 
         [Required(ErrorMessage = "UserStoryTitle is required.")]
@@ -45,10 +45,10 @@ namespace NewEmployeeDBFinal.Models
         public string Color { get; set; }
 
 
-        public static USModel FromCsv(string csvLine)
+        public static UsModel FromCsv(string csvLine)
         {
             string[] values = csvLine.Replace("\"", "").Replace("\\", "").Split(',');
-            USModel userStory = new USModel();
+            var userStory = new UsModel();
             userStory.Id = int.Parse(values[0]);
             if (!String.IsNullOrEmpty(values[1])) { userStory.Feature = int.Parse(values[1]); }
             userStory.TaskType = values[2];
@@ -68,60 +68,62 @@ namespace NewEmployeeDBFinal.Models
             return userStory;
         }
 
-        public static List<USModel> GetAllUSFromCsv(string FileNameOptional = null)
+        public static List<UsModel> GetAllUsFromCsv(string fileNameOptional = null)
         {
-            string FileForUS = (string.IsNullOrWhiteSpace(FileNameOptional)) ? csvFileName : FileNameOptional;
-            var AllUserStories = Serelisation.DecerializeListOfUSFromCSv(FileForUS);
-            var allBugs = Serelisation.DecerializeListOfBugsFromCSv(FileForUS);
-            foreach (var item in AllUserStories)
+            var fileForUs = (string.IsNullOrWhiteSpace(fileNameOptional)) ? CsvFileName : fileNameOptional;
+            var allUserStories = Serelisation.DecerializeListOfUSFromCSv(fileForUs);
+            var allBugs = Serelisation.DecerializeListOfBugsFromCSv(fileForUs);
+            foreach (var item in allUserStories)
             {
-                item.Bugs = allBugs.Where(v => v.Feature == item.Id).Count();
-                if (item.Bugs > 0) { item.Status = "BUG FIX";
+                item.Bugs = allBugs.Count(v => v.Feature == item.Id);
+                if (item.Bugs > 0) 
+                {
+                    item.Status = "BUG FIX";
                     item.Color = "red";
                 }
             }
-            Serelisation.DecerializeListOfBugsFromCSv(FileForUS);
-            Serelisation.SerializeListOfUS(jsonFileName, AllUserStories);
-            return AllUserStories;
+            Serelisation.DecerializeListOfBugsFromCSv(fileForUs);
+            Serelisation.SerializeListOfUS(JsonFileName, allUserStories);
+            return allUserStories;
         }
 
-        public static List<USModel> GetAllUSFromJson(string FileNameOptional = null)
+        public static List<UsModel> GetAllUsFromJson(string fileNameOptional = null)
         {
-            string FileForUS = (string.IsNullOrWhiteSpace(FileNameOptional)) ? jsonFileName : FileNameOptional;
-            var AllUserStories = Serelisation.DecerealiseListOfUS(FileForUS);
-            return AllUserStories;
+            var fileForUs = (string.IsNullOrWhiteSpace(fileNameOptional)) ? JsonFileName : fileNameOptional;
+            var allUserStories = Serelisation.DecerealiseListOfUS(fileForUs);
+            return allUserStories;
         }
 
-        public static void AddUserStory(USModel UserStory, string FileNameOptional = null)
+        public static void AddUserStory(UsModel userStory, string fileNameOptional = null)
         {
-            var USList = new List<USModel>();
-            string FileForStory = (string.IsNullOrWhiteSpace(FileNameOptional)) ? jsonFileName : FileNameOptional;
-            USList = File.Exists(FileForStory) ? Serelisation.DecerealiseListOfUS(jsonFileName) : USList;
-            USList.Add(UserStory);
-            Serelisation.SerializeListOfUS(FileForStory, USList);
+            var usList = new List<UsModel>();
+            string FileForStory = (string.IsNullOrWhiteSpace(fileNameOptional)) ? JsonFileName : fileNameOptional;
+            usList = File.Exists(FileForStory) ? Serelisation.DecerealiseListOfUS(JsonFileName) : usList;
+            usList.Add(userStory);
+            Serelisation.SerializeListOfUS(FileForStory, usList);
         }
 
-        public static void RemoveUserStory(int Id, string FileNameOptional = null)
+        public static void RemoveUserStory(int id, string fileNameOptional = null)
         {
-            string FileForUserStory = (string.IsNullOrWhiteSpace(FileNameOptional)) ? jsonFileName : FileNameOptional;
-            var AllUserStory = Serelisation.DecerealiseListOfUS(FileForUserStory);
-            var employeeForRemoving = AllUserStory.Single(employe => employe.Id == Id);
-            AllUserStory.Remove(employeeForRemoving);
-            Serelisation.SerializeListOfUS(FileForUserStory, AllUserStory);
+            var fileForUserStory = (string.IsNullOrWhiteSpace(fileNameOptional)) ? JsonFileName : fileNameOptional;
+            var allUserStory = Serelisation.DecerealiseListOfUS(fileForUserStory);
+            var userStoryForRemoving = allUserStory.Single(userStory => userStory.Id == id);
+            allUserStory.Remove(userStoryForRemoving);
+            Serelisation.SerializeListOfUS(fileForUserStory, allUserStory);
         }
 
-        public static void EditUserStory(USModel editedUS)
+        public static void EditUserStory(UsModel editedUs)
         {
-            RemoveUserStory(editedUS.Id);
-            USModel.AddUserStory(editedUS);
+            RemoveUserStory(editedUs.Id);
+            AddUserStory(editedUs);
         }
 
-        public static USModel SelectUserStory(int Id, string FileNameOptional = null)
+        public static UsModel SelectUserStory(int id, string fileNameOptional = null)
         {
-            string FileForUserStory = (string.IsNullOrWhiteSpace(FileNameOptional)) ? jsonFileName : FileNameOptional;
-            var AllUserStory = Serelisation.DecerealiseListOfUS(FileForUserStory);
-            var USForEditing= AllUserStory.Single(employe => employe.Id == Id);
-            return USForEditing;
+            var fileForUserStory = (string.IsNullOrWhiteSpace(fileNameOptional)) ? JsonFileName : fileNameOptional;
+            var allUserStory = Serelisation.DecerealiseListOfUS(fileForUserStory);
+            var usForEditing= allUserStory.Single(userStory => userStory.Id == id);
+            return usForEditing;
         }
     }
 }
