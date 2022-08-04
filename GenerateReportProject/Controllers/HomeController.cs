@@ -64,23 +64,19 @@ namespace NewEmployeeDBFinal.Controllers
         }
         
         [HttpPost]
-        public IActionResult UploadFile(IFormFile image)
+        public IActionResult UploadFile(IFormFile file)
         {
-            UploadedFile file = new UploadedFile();
-            if (image!=null)
+            if (file!=null)
             {
                 //Set Key Name
                 string ImageName= "allUS.csv";
-
-                //Get url To Save
-                // string SavePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/img",ImageName);
                 string pathForDoc = Path.Combine( Directory.GetCurrentDirectory(), "Files", ImageName);
                 using(var stream=new FileStream(pathForDoc, FileMode.Create))
                 {
-                    image.CopyTo(stream);
+                    file.CopyTo(stream);
                 }
+                UsModel.GetAllUsFromCsv();
             }
-            UsModel.GetAllUsFromCsv();
             var allUserStories = UsModel.GetAllUsFromJson();
             return View("Index", allUserStories);
         }
@@ -88,6 +84,5 @@ namespace NewEmployeeDBFinal.Controllers
     
     public class UploadedFile
     {
-        public IFormFile MyFile { set; get; }
     }
 }
